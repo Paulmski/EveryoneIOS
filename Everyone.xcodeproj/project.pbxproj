@@ -19,6 +19,7 @@
 		40AAA00528D8ADF9005F1263 /* Empoyee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AAA00428D8ADF9005F1263 /* Empoyee.swift */; };
 		40AAA00728D8AFE5005F1263 /* Employer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AAA00628D8AFE5005F1263 /* Employer.swift */; };
 		40AAA00928D8B2BA005F1263 /* Pod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AAA00828D8B2BA005F1263 /* Pod.swift */; };
+		40AAA00B28D8B8A4005F1263 /* EmployeeForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AAA00A28D8B8A4005F1263 /* EmployeeForm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		40AAA00428D8ADF9005F1263 /* Empoyee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Empoyee.swift; sourceTree = "<group>"; };
 		40AAA00628D8AFE5005F1263 /* Employer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employer.swift; sourceTree = "<group>"; };
 		40AAA00828D8B2BA005F1263 /* Pod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pod.swift; sourceTree = "<group>"; };
+		40AAA00A28D8B8A4005F1263 /* EmployeeForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeForm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				40AA9FD428D8AA96005F1263 /* EveryoneApp.swift */,
 				40AAA00328D8AAC5005F1263 /* Models */,
 				40AA9FD628D8AA96005F1263 /* ContentView.swift */,
+				40AAA00C28D8B9F1005F1263 /* Views */,
 				40AA9FD828D8AA9A005F1263 /* Assets.xcassets */,
 				40AA9FDD28D8AA9A005F1263 /* Persistence.swift */,
 				40AA9FDF28D8AA9A005F1263 /* Everyone.xcdatamodeld */,
@@ -148,6 +151,14 @@
 				40AAA00828D8B2BA005F1263 /* Pod.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		40AAA00C28D8B9F1005F1263 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				40AAA00A28D8B8A4005F1263 /* EmployeeForm.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				40AA9FDE28D8AA9A005F1263 /* Persistence.swift in Sources */,
+				40AAA00B28D8B8A4005F1263 /* EmployeeForm.swift in Sources */,
 				40AA9FD728D8AA96005F1263 /* ContentView.swift in Sources */,
 				40AAA00928D8B2BA005F1263 /* Pod.swift in Sources */,
 				40AA9FE128D8AA9A005F1263 /* Everyone.xcdatamodeld in Sources */,

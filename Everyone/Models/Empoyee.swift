@@ -23,8 +23,9 @@ struct Employee: Identifiable {
     var employerId: Int
     var podId: Int
     var name: String
-    var genderIdentity: String
-    var sexualOrientation: String
+    var gender: String
+    var sexuality: String
+    var pronouns: String
     var ethnicity: String
     var department: String?
 }
