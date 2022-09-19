@@ -1,0 +1,6 @@
+framework module Pods_Everyone_EveryoneUITests {
+  umbrella header "Pods-Everyone-EveryoneUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
