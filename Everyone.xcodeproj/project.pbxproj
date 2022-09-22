@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		06E44988C5FEF6A23C86E39D /* Pods_EveryoneTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA82759BDDCE51FA29AF0832 /* Pods_EveryoneTests.framework */; };
+		4030B10928DB664800055372 /* WebHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4030B10828DB664800055372 /* WebHandler.swift */; };
 		40AA9FD528D8AA96005F1263 /* EveryoneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AA9FD428D8AA96005F1263 /* EveryoneApp.swift */; };
 		40AA9FD728D8AA96005F1263 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AA9FD628D8AA96005F1263 /* ContentView.swift */; };
 		40AA9FD928D8AA9A005F1263 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40AA9FD828D8AA9A005F1263 /* Assets.xcassets */; };
@@ -17,7 +18,7 @@
 		40AA9FEB28D8AA9A005F1263 /* EveryoneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AA9FEA28D8AA9A005F1263 /* EveryoneTests.swift */; };
 		40AA9FF528D8AA9A005F1263 /* EveryoneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AA9FF428D8AA9A005F1263 /* EveryoneUITests.swift */; };
 		40AA9FF728D8AA9A005F1263 /* EveryoneUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AA9FF628D8AA9A005F1263 /* EveryoneUITestsLaunchTests.swift */; };
-		40AAA00528D8ADF9005F1263 /* Empoyee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AAA00428D8ADF9005F1263 /* Empoyee.swift */; };
+		40AAA00528D8ADF9005F1263 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AAA00428D8ADF9005F1263 /* Employee.swift */; };
 		40AAA00728D8AFE5005F1263 /* Employer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AAA00628D8AFE5005F1263 /* Employer.swift */; };
 		40AAA00928D8B2BA005F1263 /* Pod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AAA00828D8B2BA005F1263 /* Pod.swift */; };
 		40AAA00B28D8B8A4005F1263 /* EmployeeForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AAA00A28D8B8A4005F1263 /* EmployeeForm.swift */; };
@@ -46,6 +47,7 @@
 		0A5E588E95A01079CB8986FF /* Pods_Everyone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Everyone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		17EA80DB946406E6669E4564 /* Pods-EveryoneTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EveryoneTests.release.xcconfig"; path = "Target Support Files/Pods-EveryoneTests/Pods-EveryoneTests.release.xcconfig"; sourceTree = "<group>"; };
 		1AF9884F57435B109ECEF70F /* Pods-Everyone-EveryoneUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Everyone-EveryoneUITests.debug.xcconfig"; path = "Target Support Files/Pods-Everyone-EveryoneUITests/Pods-Everyone-EveryoneUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		4030B10828DB664800055372 /* WebHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebHandler.swift; sourceTree = "<group>"; };
 		40AA9FD128D8AA96005F1263 /* Everyone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Everyone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40AA9FD428D8AA96005F1263 /* EveryoneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EveryoneApp.swift; sourceTree = "<group>"; };
 		40AA9FD628D8AA96005F1263 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -58,7 +60,7 @@
 		40AA9FF028D8AA9A005F1263 /* EveryoneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EveryoneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		40AA9FF428D8AA9A005F1263 /* EveryoneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EveryoneUITests.swift; sourceTree = "<group>"; };
 		40AA9FF628D8AA9A005F1263 /* EveryoneUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EveryoneUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		40AAA00428D8ADF9005F1263 /* Empoyee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Empoyee.swift; sourceTree = "<group>"; };
+		40AAA00428D8ADF9005F1263 /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		40AAA00628D8AFE5005F1263 /* Employer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employer.swift; sourceTree = "<group>"; };
 		40AAA00828D8B2BA005F1263 /* Pod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pod.swift; sourceTree = "<group>"; };
 		40AAA00A28D8B8A4005F1263 /* EmployeeForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeForm.swift; sourceTree = "<group>"; };
@@ -108,7 +110,6 @@
 				80D13B1AB587BAEC8BD4C5E2 /* Pods-EveryoneTests.debug.xcconfig */,
 				17EA80DB946406E6669E4564 /* Pods-EveryoneTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -177,9 +178,10 @@
 		40AAA00328D8AAC5005F1263 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				40AAA00428D8ADF9005F1263 /* Empoyee.swift */,
+				40AAA00428D8ADF9005F1263 /* Employee.swift */,
 				40AAA00628D8AFE5005F1263 /* Employer.swift */,
 				40AAA00828D8B2BA005F1263 /* Pod.swift */,
+				4030B10828DB664800055372 /* WebHandler.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -445,9 +447,10 @@
 				40AA9FD728D8AA96005F1263 /* ContentView.swift in Sources */,
 				40AAA00928D8B2BA005F1263 /* Pod.swift in Sources */,
 				40AA9FE128D8AA9A005F1263 /* Everyone.xcdatamodeld in Sources */,
-				40AAA00528D8ADF9005F1263 /* Empoyee.swift in Sources */,
+				40AAA00528D8ADF9005F1263 /* Employee.swift in Sources */,
 				40AAA00728D8AFE5005F1263 /* Employer.swift in Sources */,
 				40AA9FD528D8AA96005F1263 /* EveryoneApp.swift in Sources */,
+				4030B10928DB664800055372 /* WebHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
