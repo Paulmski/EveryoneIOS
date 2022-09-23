@@ -21,22 +21,33 @@ class EveryoneTests: XCTestCase {
  
     
     func testGetEmployee() throws {
-        let webHandler = WebHandler()
         let expectation = self.expectation(description: "decoding")
 
         
-        webHandler.getEmployeeDetails(employerUuid: UUID(uuidString: "d92eb9dc-566d-4427-87c3-ee14c19b4d14")!, id: 2) { employee in
-            XCTAssertEqual(employee?.name, "Toby")
-            XCTAssertEqual(employee?.genderIdentity, "Genderfluid")
-            XCTAssertEqual(employee?.sexualOrientation, "Bisexual")
-            XCTAssertEqual(employee?.ethnicity, "Arab")
-            XCTAssertEqual(employee?.employerId, 2)
-            XCTAssertEqual(employee?.pronoun, "he/him")
-            expectation.fulfill()
-            
-        }
+//        WebHandler.getEmployeeDetails(employerUuid: UUID(uuidString: "d92eb9dc-566d-4427-87c3-ee14c19b4d14")!, id: 5) { employee in
+////            XCTAssertEqual(employee?.name, "Toby")
+////            XCTAssertEqual(employee?.employeeId, 2)
+////            XCTAssertEqual(employee?.genderIdentity, "Genderfluid")
+////            XCTAssertEqual(employee?.sexualOrientation, "Bisexual")
+////            XCTAssertEqual(employee?.ethnicity, "Arab")
+////            XCTAssertEqual(employee?.employerId, 2)
+////            XCTAssertEqual(employee?.pronoun, "he/him")
+//            expectation.fulfill()
+//
+//        }
+//        waitForExpectations(timeout: 20, handler: nil)
+
+    }
+    
+    func testCreateEmployee() throws {
+        let expectation = self.expectation(description: "creating")
+
+        let employee = Employee(name: "TestPost", genderIdentity: "Male", sexualOrientation: "Heterosexual", ethnicity: "South Asian", employerId: 2, pronoun: "he/him")
+        WebHandler.createEmployee(employerUuid: UUID(uuidString: "d92eb9dc-566d-4427-87c3-ee14c19b4d14")!, employee: employee)
         waitForExpectations(timeout: 20, handler: nil)
 
     }
+    
+    
 
 }

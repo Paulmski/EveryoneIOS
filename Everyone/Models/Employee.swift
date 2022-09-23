@@ -16,11 +16,36 @@ import Foundation
 //DepartmentId? (FK)
 //PodId? (FK)
 
-struct Employee: Identifiable, Decodable {
+struct Employee: Identifiable, Codable {
+      var id: UUID = UUID()
+    var employeeId: Int?
+    var name: String = ""
+    var genderIdentity: String = "Female"
+    var sexualOrientation: String = "Heterosexual"
+    var ethnicity: String = "Arab"
+    var employerId: Int = 0
+    var departmentId: Int?
+    var departmentName: String?
+    var podId: Int?
+    var podName: String?
+    var pronoun: String = "she/her"
     
+    init(name: String, genderIdentity: String, sexualOrientation: String, ethnicity: String, employerId: Int, pronoun: String) {
+        self.name = name
+        self.genderIdentity = genderIdentity
+        self.sexualOrientation = sexualOrientation
+        self.ethnicity = ethnicity
+        self.employerId = employerId
+        self.pronoun = pronoun
+        employeeId = nil
+        id = UUID()
+        departmentId = nil
+        podId = nil
+        podName = nil
+        departmentName = nil
+    }
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        id = UUID()
         employeeId = try container.decode(Int.self, forKey: .employeeId)
         name = try container.decode(String.self, forKey: .name)
         genderIdentity = try container.decode(String.self, forKey: .genderIdentity)
@@ -32,8 +57,31 @@ struct Employee: Identifiable, Decodable {
         podId = try container.decode(Int?.self, forKey: .podId)
         podName = try container.decode(String?.self, forKey: .podName)
         pronoun = try container.decode(String.self, forKey: .pronoun)
-      }
+    }
     
+    
+    
+    //    {
+    //      "name": "string",
+    //      "genderIdentity": 0,
+    //      "sexualOrientation": 0,
+    //      "ethnicity": 0,
+    //      "departmentId": 0,
+    //      "podId": 0,
+    //      "pronoun": 0
+    //    }
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(departmentId, forKey: .departmentId)
+        try container.encode(podId, forKey: .podId)
+        try container.encode(name, forKey: .name)
+        try container.encode(Keys.Genders[genderIdentity], forKey: .genderIdentity)
+        try container.encode(Keys.Sexualities[sexualOrientation], forKey: .sexualOrientation)
+        try container.encode(Keys.Ethnicities[ethnicity], forKey: .ethnicity)
+        try container.encode(Keys.Pronouns[pronoun], forKey: .pronoun)
+        
+        
+    }
     enum CodingKeys: String, CodingKey {
         case employeeId,
              name,
@@ -45,20 +93,11 @@ struct Employee: Identifiable, Decodable {
              departmentName,
              podId,
              podName,
-             pronoun
+             pronoun,
+             id
     }
     
-    var id: UUID
-    var employeeId: Int
-    var name: String
-    var genderIdentity: String
-    var sexualOrientation: String
-    var ethnicity: String
-    var employerId: Int
-    var departmentId: Int?
-    var departmentName: String?
-    var podId: Int?
-    var podName: String?
-    var pronoun: String
-    
+  
 }
+
+
