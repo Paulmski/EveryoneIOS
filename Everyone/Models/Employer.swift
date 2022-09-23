@@ -10,9 +10,8 @@ import Foundation
 //EmployerId (PK)
 //Name
 //AuthenticationTokens…
-struct employer: Identifiable {
-    var id: UUID
-    var employerid: Int
-    var name: String
-    var token: String
+
+struct Employer: Codable {
+    var email: String
+    var password: String
 }
