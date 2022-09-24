@@ -113,4 +113,19 @@ class WebHandler {
         
         task.resume()
     }
+    
+    
+    static func getDepartments(uuid: UUID, completionHandler: @escaping ([Department]?) -> Void) {
+        let url = URL (string: baseURL+"Departments?uuid="+uuid.uuidString)!
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data, error == nil else {
+                print(error?.localizedDescription ?? "No data")
+                completionHandler(nil)
+                return
+            }
+            let decoder = JSONDecoder()
+            let departments = try! decoder.decode([Department].self, from: data)
+            completionHandler(departments)
+        }.resume()
+    }
 }

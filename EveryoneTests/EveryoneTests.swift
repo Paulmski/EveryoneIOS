@@ -69,12 +69,30 @@ class EveryoneTests: XCTestCase {
     
     
     func testLoginEmployer() throws {
-        let expectation = self.expectation(description: "loginning in")
+        let expectation = self.expectation(description: "logining in")
         WebHandler.loginEmployee(email: "passwordistest123123@gmail.com", password: "test123123") { result in
             XCTAssert(result != nil)
             expectation.fulfill()
         }
         waitForExpectations(timeout: 20, handler: nil)
+    }
+    
+    
+    func testGetDepartments() throws {
+        let expectation = self.expectation(description: "getting departments")
+        WebHandler.loginEmployee(email: "passwordistest123123@gmail.com", password: "test123123") { result in
+            XCTAssert(result != nil)
+            guard let uuid = result else {
+                return }
+            WebHandler.getDepartments(uuid: uuid, completionHandler: { departments in
+                guard let departments = departments else {
+                    return
+                }
+                XCTAssert(departments.count != 0)
+            expectation.fulfill()
+            })
+        }
+        waitForExpectations(timeout: 60, handler: nil)
     }
     
     

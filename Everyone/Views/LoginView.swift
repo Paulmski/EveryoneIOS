@@ -11,11 +11,12 @@ struct LoginView: View {
     @State private var username: String = ""
     @State private var password: String = ""
     @State private var showAlert = false
-    @Binding var isPresented: Bool
+    @State private var showMainScreen = false
     var body: some View {
         
         NavigationView {
-            VStack() { Image("logo_transparent") .resizable()
+            VStack() {
+                Image("logo_transparent") .resizable()
                     .scaledToFit()
                 TextField("Username", text: $username)
                     .padding(.top)
@@ -29,6 +30,8 @@ struct LoginView: View {
                     WebHandler.loginEmployee(email: username, password: password) { uuid in
                         if let safeUuid = uuid {
                             UserDefaults.standard.set(safeUuid.uuidString, forKey: "token")
+                            showMainScreen = true
+//                            passwordistest123123@gmail.com
                         } else {
                             showAlert = true
                         }
@@ -39,10 +42,21 @@ struct LoginView: View {
                     Text("Login")
                         .foregroundColor(.white)
                         .frame(minWidth: 100, minHeight: 30)
-                        .background(.blue)
+                        .background(Color.vibrantPurple)
                         .cornerRadius(5)
                         
                 }
+                
+                Button {
+                    
+                } label: {
+                    Text("Sign Up")
+                        .foregroundColor(.white)
+                        .frame(minWidth: 100, minHeight: 30)
+                        .background(Color.darkPurple)
+                        .cornerRadius(5)
+                }
+
                 
                 
             }
@@ -55,6 +69,9 @@ struct LoginView: View {
                     dismissButton: .default(Text("Dismiss"))
                 )
             }
+            .fullScreenCover(isPresented: $showMainScreen) {
+                MainView()
+            }
         }
     }
 }
@@ -62,6 +79,6 @@ struct LoginView: View {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView(isPresented: .constant(true))
+        LoginView()
     }
 }
