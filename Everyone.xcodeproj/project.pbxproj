@@ -28,6 +28,7 @@
 		40AAA00928D8B2BA005F1263 /* Pod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AAA00828D8B2BA005F1263 /* Pod.swift */; };
 		40AAA00B28D8B8A4005F1263 /* EmployeeForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AAA00A28D8B8A4005F1263 /* EmployeeForm.swift */; };
 		40BFC0B928DE725A00C362D0 /* Department.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BFC0B828DE725A00C362D0 /* Department.swift */; };
+		40BFC0BD28DF41E200C362D0 /* DepartmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BFC0BC28DF41E200C362D0 /* DepartmentView.swift */; };
 		4417EDA2490B69A639602976 /* Pods_Everyone_EveryoneUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B30925869F428C2CDE0D3252 /* Pods_Everyone_EveryoneUITests.framework */; };
 		621FD3C61C8E00AA997BDE2B /* Pods_Everyone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A5E588E95A01079CB8986FF /* Pods_Everyone.framework */; };
 /* End PBXBuildFile section */
@@ -76,6 +77,7 @@
 		40AAA00828D8B2BA005F1263 /* Pod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pod.swift; sourceTree = "<group>"; };
 		40AAA00A28D8B8A4005F1263 /* EmployeeForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeForm.swift; sourceTree = "<group>"; };
 		40BFC0B828DE725A00C362D0 /* Department.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Department.swift; sourceTree = "<group>"; };
+		40BFC0BC28DF41E200C362D0 /* DepartmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentView.swift; sourceTree = "<group>"; };
 		72041B3C08C99B554435215D /* Pods-Everyone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Everyone.debug.xcconfig"; path = "Target Support Files/Pods-Everyone/Pods-Everyone.debug.xcconfig"; sourceTree = "<group>"; };
 		80D13B1AB587BAEC8BD4C5E2 /* Pods-EveryoneTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EveryoneTests.debug.xcconfig"; path = "Target Support Files/Pods-EveryoneTests/Pods-EveryoneTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AA82759BDDCE51FA29AF0832 /* Pods_EveryoneTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EveryoneTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -204,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				40AAA00A28D8B8A4005F1263 /* EmployeeForm.swift */,
+				40BFC0BC28DF41E200C362D0 /* DepartmentView.swift */,
 				4014863A28DE5DE70043A95C /* DepartmentsView.swift */,
 				4014863C28DE5E250043A95C /* EmployeesView.swift */,
 				4014863228DE1A4C0043A95C /* LoginView.swift */,
@@ -467,6 +470,7 @@
 				40AAA00928D8B2BA005F1263 /* Pod.swift in Sources */,
 				40AA9FE128D8AA9A005F1263 /* Everyone.xcdatamodeld in Sources */,
 				40AAA00528D8ADF9005F1263 /* Employee.swift in Sources */,
+				40BFC0BD28DF41E200C362D0 /* DepartmentView.swift in Sources */,
 				4014863B28DE5DE70043A95C /* DepartmentsView.swift in Sources */,
 				4014863728DE3AF80043A95C /* Colour.swift in Sources */,
 				4014863D28DE5E250043A95C /* EmployeesView.swift in Sources */,

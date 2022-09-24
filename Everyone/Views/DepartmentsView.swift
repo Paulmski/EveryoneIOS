@@ -8,8 +8,31 @@
 import SwiftUI
 
 struct DepartmentsView: View {
+    @State private var departments: [Department] = []
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            List {
+                ForEach (departments) { department in
+                    NavigationLink {
+                       DepartmentView(department: department)
+                    } label: {
+                        Text(department.name)
+                    }
+
+                }
+            }
+           
+        }
+        .onAppear() {
+            guard let uuid = UUID(uuidString: UserDefaults.standard.string(forKey: "token") ?? "") else { return }
+            WebHandler.getDepartments(uuid: uuid, completionHandler: {departments in
+                guard let departments = departments else {
+                    return
+                }
+                self.departments = departments
+                
+            })
+        }
     }
 }
 

@@ -47,20 +47,21 @@ class EveryoneTests: XCTestCase {
         let ethnicity = "Arab"
         let id = 3
         let pronoun = "he/him"
-        let uuid = UUID(uuidString: "d92eb9dc-566d-4427-87c3-ee14c19b4d14")!
         let employee = Employee(name: name, genderIdentity: genderIdentity, sexualOrientation: sexualOrientation, ethnicity: ethnicity, employerId: id, pronoun: pronoun)
         
-        WebHandler.createEmployee(employerUuid: uuid, employee: employee, completionHandler: { result in
+        WebHandler.loginEmployee(email: "passwordistest123123@gmail.com", password: "test123123") { uuid in
+        WebHandler.createEmployee(employerUuid: uuid!, employee: employee, completionHandler: { result in
             XCTAssert(result == 0)
             expectation.fulfill()
         })
+        }
         waitForExpectations(timeout: 20, handler: nil)
 
     }
     
     func testRegisterEmployer() throws {
         let expectation = self.expectation(description: "registering")
-        WebHandler.registerEmployer(email: "test@gmail.com", password: "1234") { result in
+        WebHandler.registerEmployer(email: "testtest@gmail.com", password: "1234") { result in
             XCTAssert(result == 0)
             expectation.fulfill()
         }
@@ -92,9 +93,25 @@ class EveryoneTests: XCTestCase {
             expectation.fulfill()
             })
         }
-        waitForExpectations(timeout: 60, handler: nil)
+        waitForExpectations(timeout: 20, handler: nil)
     }
     
     
+    func testGetEmployees() throws {
+        let expectation = self.expectation(description: "getting all employees")
+        WebHandler.loginEmployee(email: "passwordistest123123@gmail.com", password: "test123123") { result in
+            XCTAssert(result != nil)
+            guard let uuid = result else {
+                return }
+            WebHandler.getAllEmployees(uuid: uuid, completionHandler: { employees in
+                guard let employees = employees else {
+                    return
+                }
+                XCTAssert(employees.count != 0)
+            expectation.fulfill()
+            })
+        }
+        waitForExpectations(timeout: 20, handler: nil)
+    }
 
 }

@@ -11,11 +11,17 @@ struct Department: Identifiable, Codable {
     var id: UUID = UUID()
     var name: String = ""
     var departmentId: Int?
+    var employees: [Employee] = [Employee]()
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         name = try container.decode(String.self, forKey: .name)
         departmentId = try container.decode(Int?.self, forKey: .departmentId)
+        do {
+        employees = try container.decode([Employee].self, forKey: .employees)
+        } catch {
+                employees = [Employee]()
+        }
     }
     
     func encode(to encoder: Encoder) throws {
@@ -25,7 +31,7 @@ struct Department: Identifiable, Codable {
     }
    
     enum CodingKeys: CodingKey {
-        case name, departmentId, id
+        case name, departmentId, id, employees
     }
     
     

@@ -37,13 +37,17 @@ class WebHandler {
         
         // insert json data to the request
         request.httpBody = jsonData
-        
+        print(String(data: jsonData, encoding: .utf8))
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {
                 print(error?.localizedDescription ?? "No data")
                 completionHandler(1)
                 return
             }
+            print(response)
+            if let httpResponse = response as? HTTPURLResponse {
+                    print("statusCode: \(httpResponse.statusCode)")
+                }
             completionHandler(0)
         }
         
@@ -106,9 +110,9 @@ class WebHandler {
                 return
             }
             let responseString = String(decoding: data, as: UTF8.self)
-                print(responseString)
-                completionHandler(UUID(uuidString: responseString))
-           
+            print(responseString)
+            completionHandler(UUID(uuidString: responseString))
+            
         }
         
         task.resume()
@@ -128,4 +132,63 @@ class WebHandler {
             completionHandler(departments)
         }.resume()
     }
+    
+    
+    static func getAllEmployees(uuid: UUID, completionHandler: @escaping ([Employee]?) -> Void) {
+        
+        let url = URL (string: baseURL+"Employees?uuid="+uuid.uuidString)!
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data, error == nil else {
+                print(error?.localizedDescription ?? "No data")
+                completionHandler(nil)
+                return
+            }
+            let decoder = JSONDecoder()
+            let employees = try! decoder.decode([Employee].self, from: data)
+            completionHandler(employees)
+        }.resume()
+    }
+    
+    static func saveEmployee(uuid: UUID, employee: Employee, completionHandler: @escaping (Int) -> Void) {
+        
+        let id = employee.employeeId ?? -1
+        let url = URL (string: baseURL+"Employees/Edit?id="+id.description+"&uuid="+uuid.uuidString)!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")  // the request is JSON
+        
+        // insert json data to the request
+        let jsonData = try! JSONEncoder().encode(employee)
+        request.httpBody = jsonData
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data, error == nil else {
+                print(error?.localizedDescription ?? "No data")
+                completionHandler(1)
+                return
+            }
+            let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
+            if let responseJSON = responseJSON as? [String: Any] {
+                print(responseJSON)
+                completionHandler(1)
+            } else {
+                completionHandler(0)
+            }
+        }.resume()
+    }
+    
+    static func getEmployeesByDepartment(uuid: UUID, departmentId: Int, completionHandler: @escaping ([Employee]) -> Void) {
+    let url = URL (string: baseURL+"Employees?departmentId=" + departmentId.description +  "&uuid="+uuid.uuidString)!
+    URLSession.shared.dataTask(with: url) { data, response, error in
+        guard let data = data, error == nil else {
+            print(error?.localizedDescription ?? "No data")
+            completionHandler([Employee]())
+            return
+        }
+        print(String(data: data, encoding: .utf8))
+        let decoder = JSONDecoder()
+        let employees = try! decoder.decode([Employee].self, from: data)
+        completionHandler(employees ?? [Employee]())
+    }.resume()
+    }
+    
 }
